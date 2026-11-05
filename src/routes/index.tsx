@@ -62,7 +62,7 @@ const familyStories = [
     parent: "Priya & Mochi",
     breed: "Shih Tzu",
     location: "DLF Phase 5, Gurgaon",
-    quote: "Finding our little bundle of joy through Paw & Promise was the best decision. She’s brought endless laughter to our apartment.",
+    quote: "Finding our little bundle of joy through PupNest was the best decision. She’s brought endless laughter to our apartment.",
   },
   {
     id: 3,
@@ -257,13 +257,13 @@ const filters = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Puppies in Delhi NCR | Paw & Promise" },
+      { title: "Puppies in Delhi NCR | PupNest" },
       {
         name: "description",
         content:
           "Explore popular puppy breeds in Delhi NCR, compare their needs, and find thoughtful questions to ask before choosing your new companion.",
       },
-      { property: "og:title", content: "Puppies in Delhi NCR | Paw & Promise" },
+      { property: "og:title", content: "Puppies in Delhi NCR | PupNest" },
       {
         property: "og:description",
         content:
@@ -276,7 +276,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const CONTACT_PHONE = "+919876543210";
+const CONTACT_PHONE = "+917678494050";
+const CONTACT_PHONE_DISPLAY = "+91 76784 94050";
+const WHATSAPP_NUMBER = "917678494050";
 
 function Index() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -289,8 +291,8 @@ function Index() {
 
   const handleInquirySubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hi Paw & Promise! My name is ${inquiryName || "Puppy Lover"} (${inquiryPhone || "Not provided"}). I am interested in a ${inquiryBreed} puppy in Delhi NCR. ${inquiryMessage ? `Note: ${inquiryMessage}` : ""}`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(text)}`, "_blank");
+    const text = `Hi PupNest! My name is ${inquiryName || "Puppy Lover"} (${inquiryPhone || "Not provided"}). I am interested in a ${inquiryBreed} puppy in Delhi NCR. ${inquiryMessage ? `Note: ${inquiryMessage}` : ""}`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
     setFormSent(true);
   };
 
@@ -311,9 +313,9 @@ function Index() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <header className="site-header">
-        <a className="brand-mark" href="#top" aria-label="Paw and Promise home">
+        <a className="brand-mark" href="#top" aria-label="PupNest home">
           <span className="brand-icon"><PawPrint aria-hidden="true" /></span>
-          <span>Paw <span className="brand-amp">&</span> Promise</span>
+          <span>Pup<span className="brand-amp">Nest</span></span>
         </a>
         <nav className="site-nav" aria-label="Main navigation">
           <a href="#puppies">Meet the breeds</a>
@@ -414,7 +416,7 @@ function Index() {
                   <div className="breed-actions">
                     <a
                       className="breed-btn-chat"
-                      href={`https://wa.me/919876543210?text=${encodeURIComponent(`Hi Paw & Promise, I am interested in a ${breed.name} puppy in Delhi NCR.`)}`}
+                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi PupNest, I am interested in a ${breed.name} puppy in Delhi NCR.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Chat on WhatsApp about ${breed.name}`}
@@ -466,7 +468,7 @@ function Index() {
             <h2>Real love stories.<br /><em>Forever homes.</em></h2>
           </div>
           <p className="section-intro">
-            From the very first cuddle to playful mornings, meet some of the wonderful families and puppies who found each other through Paw &amp; Promise.
+            From the very first cuddle to playful mornings, meet some of the wonderful families and puppies who found each other through PupNest.
           </p>
         </div>
 
@@ -542,7 +544,7 @@ function Index() {
                 <div className="contact-info-links">
                   <a
                     className="breed-btn-chat"
-                    href="https://wa.me/919876543210?text=Hello%20Paw%20%26%20Promise%2C%20I%20have%20an%20inquiry%20about%20a%20puppy."
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello PupNest, I have an inquiry about a puppy.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -551,7 +553,7 @@ function Index() {
                   </a>
                   <a className="breed-btn-call" href={`tel:${CONTACT_PHONE}`}>
                     <Phone aria-hidden="true" />
-                    <span>Call +91 98765 43210</span>
+                    <span>Call {CONTACT_PHONE_DISPLAY}</span>
                   </a>
                 </div>
               </div>
@@ -573,7 +575,7 @@ function Index() {
               </div>
               <div className="contact-info-text">
                 <h4>Direct Email Inquiries</h4>
-                <p><a href="mailto:hello@pawandpromise.in" className="font-semibold text-foreground hover:underline">hello@pawandpromise.in</a> — Typically replied to within 2 hours.</p>
+                <p><a href="mailto:hello@pupnest.in" className="font-semibold text-foreground hover:underline">hello@pupnest.in</a> — Typically replied to within 2 hours.</p>
               </div>
             </div>
           </div>
@@ -613,7 +615,7 @@ function Index() {
                     id="inquiry-phone"
                     type="tel"
                     required
-                    placeholder="+91 98765 XXXXX"
+                    placeholder="+91 76784 XXXXX"
                     value={inquiryPhone}
                     onChange={(e) => setInquiryPhone(e.target.value)}
                   />
@@ -666,9 +668,9 @@ function Index() {
       <footer className="site-footer">
         <div className="footer-grid">
           <div className="footer-col">
-            <a className="brand-mark footer-brand" href="#top" aria-label="Paw and Promise home">
+            <a className="brand-mark footer-brand" href="#top" aria-label="PupNest home">
               <span className="brand-icon"><PawPrint aria-hidden="true" /></span>
-              <span>Paw <span className="brand-amp">&</span> Promise</span>
+              <span>Pup<span className="brand-amp">Nest</span></span>
             </a>
             <p className="footer-brand-bio">
               Thoughtful, ethical, health-first puppy introductions across Delhi NCR. We connect prospective pet parents with transparent health records, vaccinated puppies, and lifetime guidance.
@@ -709,21 +711,21 @@ function Index() {
               <li className="footer-contact-item">
                 <Phone />
                 <div>
-                  <a href={`tel:${CONTACT_PHONE}`}>+91 98765 43210</a>
+                  <a href={`tel:${CONTACT_PHONE}`}>{CONTACT_PHONE_DISPLAY}</a>
                   <div className="text-xs text-muted-foreground">Direct Line &amp; Consultations</div>
                 </div>
               </li>
               <li className="footer-contact-item">
                 <MessageCircle />
                 <div>
-                  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+                  <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
                   <div className="text-xs text-muted-foreground">Quick photos &amp; videos</div>
                 </div>
               </li>
               <li className="footer-contact-item">
                 <Mail />
                 <div>
-                  <a href="mailto:hello@pawandpromise.in">hello@pawandpromise.in</a>
+                  <a href="mailto:hello@pupnest.in">hello@pupnest.in</a>
                   <div className="text-xs text-muted-foreground">General inquiries</div>
                 </div>
               </li>
@@ -742,7 +744,7 @@ function Index() {
 
         <div className="footer-bottom">
           <div className="footer-bottom-brand">
-            © {new Date().getFullYear()} Paw &amp; Promise. All rights reserved.
+            © {new Date().getFullYear()} PupNest. All rights reserved.
           </div>
           <div>
             Powered by{" "}
