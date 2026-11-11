@@ -396,46 +396,46 @@ function Index() {
         <div className="breed-grid">
           {visibleBreeds.map((breed, index) => (
             <article className="breed-card" key={breed.name}>
-                <div className="breed-image-wrap">
-                  <img
-                    className="breed-image"
-                    src={breed.image}
-                    alt={`${breed.name} puppy`}
-                    width={912}
-                    height={912}
-                    loading="lazy"
-                  />
-                  <span className="breed-index">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="breed-fit">{breed.fit}</span>
+              <div className="breed-image-wrap">
+                <img
+                  className="breed-image"
+                  src={breed.image}
+                  alt={`${breed.name} puppy`}
+                  width={912}
+                  height={912}
+                  loading="lazy"
+                />
+                <span className="breed-index">{String(index + 1).padStart(2, "0")}</span>
+                <span className="breed-fit">{breed.fit}</span>
+              </div>
+              <div className="breed-card-copy">
+                <div>
+                  <p className="breed-kicker">A breed to know</p>
+                  <h3>{breed.name}</h3>
                 </div>
-                <div className="breed-card-copy">
-                  <div>
-                    <p className="breed-kicker">A breed to know</p>
-                    <h3>{breed.name}</h3>
-                  </div>
-                  <div className="breed-actions">
-                    <a
-                      className="breed-btn-chat"
-                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi PupNest, I am interested in a ${breed.name} puppy in Delhi NCR.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Chat on WhatsApp about ${breed.name}`}
-                    >
-                      <MessageCircle aria-hidden="true" />
-                      <span>Chat</span>
-                    </a>
-                    <a
-                      className="breed-btn-call"
-                      href={`tel:${CONTACT_PHONE}`}
-                      aria-label={`Call now about ${breed.name}`}
-                    >
-                      <Phone aria-hidden="true" />
-                      <span>Call Now</span>
-                    </a>
-                  </div>
+                <div className="breed-actions">
+                  <a
+                    className="breed-btn-chat"
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi PupNest, I am interested in a ${breed.name} puppy in Delhi NCR.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Chat on WhatsApp about ${breed.name}`}
+                  >
+                    <MessageCircle aria-hidden="true" />
+                    <span>Chat</span>
+                  </a>
+                  <a
+                    className="breed-btn-call"
+                    href={`tel:${CONTACT_PHONE}`}
+                    aria-label={`Call now about ${breed.name}`}
+                  >
+                    <Phone aria-hidden="true" />
+                    <span>Call Now</span>
+                  </a>
                 </div>
-              </article>
-            ))}
+              </div>
+            </article>
+          ))}
           {visibleBreeds.length === 0 && (
             <p className="no-results">No breeds match that search. Try another name.</p>
           )}
@@ -576,7 +576,7 @@ function Index() {
               <div className="contact-info-text">
                 <h4>Direct Email Inquiries</h4>
                 <p><a href="mailto:hello@pupnest.in" className="font-semibold text-foreground hover:underline">hello@pupnest.in</a> — Typically replied to within 2 hours.</p>
-              </div>
+                dvx              </div>
             </div>
           </div>
 
@@ -658,9 +658,29 @@ function Index() {
         <div className="closing-inner">
           <p className="eyebrow">YOUR NEXT CHAPTER HAS FOUR PAWS</p>
           <h2>Somewhere in Delhi NCR,<br />there’s a little <em>hello</em> waiting.</h2>
-          <Button asChild size="lg" className="closing-button">
-            <a href="#puppies">Meet the breeds <ArrowRight aria-hidden="true" /></a>
-          </Button>
+          <div className="closing-actions">
+            <Button asChild size="lg" className="closing-button">
+              <a href="#puppies">Meet the breeds <ArrowRight aria-hidden="true" /></a>
+            </Button>
+            <a
+              className="breed-btn-chat closing-btn-chat"
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello PupNest, I am looking for a puppy in Delhi NCR.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat on WhatsApp with PupNest"
+            >
+              <MessageCircle aria-hidden="true" />
+              <span>WhatsApp</span>
+            </a>
+            <a
+              className="breed-btn-call closing-btn-call"
+              href={`tel:${CONTACT_PHONE}`}
+              aria-label="Call PupNest"
+            >
+              <Phone aria-hidden="true" />
+              <span>Call Now</span>
+            </a>
+          </div>
           <span className="closing-spark" aria-hidden="true">✳</span>
         </div>
       </section>
@@ -762,6 +782,30 @@ function Index() {
           </a>
         </div>
       </footer>
+
+      {/* Floating Sticky Bottom Action Bar */}
+      <div className="floating-bottom-bar" role="region" aria-label="Quick contact actions">
+        <div className="floating-bottom-inner">
+          <a
+            className="floating-btn-chat"
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello PupNest, I am looking for a puppy in Delhi NCR.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp with PupNest"
+          >
+            <MessageCircle aria-hidden="true" />
+            <span>WhatsApp</span>
+          </a>
+          <a
+            className="floating-btn-call"
+            href={`tel:${CONTACT_PHONE}`}
+            aria-label="Call PupNest at 7678494050"
+          >
+            <Phone aria-hidden="true" />
+            <span>Call Now</span>
+          </a>
+        </div>
+      </div>
     </main>
   );
 }
