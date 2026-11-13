@@ -277,7 +277,7 @@ export const Route = createFileRoute("/")({
 });
 
 const CONTACT_PHONE = "+917678494050";
-const CONTACT_PHONE_DISPLAY = "+91 76784 94050";
+const CONTACT_PHONE_DISPLAY = "7678494050";
 const WHATSAPP_NUMBER = "917678494050";
 
 function Index() {
@@ -576,7 +576,7 @@ function Index() {
               <div className="contact-info-text">
                 <h4>Direct Email Inquiries</h4>
                 <p><a href="mailto:hello@pupnest.in" className="font-semibold text-foreground hover:underline">hello@pupnest.in</a> — Typically replied to within 2 hours.</p>
-                dvx              </div>
+              </div>
             </div>
           </div>
 
@@ -615,7 +615,7 @@ function Index() {
                     id="inquiry-phone"
                     type="tel"
                     required
-                    placeholder="+91 76784 XXXXX"
+                    placeholder="7678494050"
                     value={inquiryPhone}
                     onChange={(e) => setInquiryPhone(e.target.value)}
                   />
